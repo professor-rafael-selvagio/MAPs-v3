@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, Dimensions } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image, Dimensions, ScrollView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -7,6 +7,7 @@ import MinhaLocalizacao from './screen/MinhaLocalizacao';
 import SenaiSaoCarlos from './screen/SenaiSaoCarlos';
 import SenaiSaoCaetanoDoSul from './screen/SenaiSaoCaetanoDoSul';
 import InserirLocalizacao from './screen/InserirLocalizacao';
+import Pesquisa from './screen/Pesquisa';
 
 const Stack = createStackNavigator();
 
@@ -39,6 +40,11 @@ const App = () => {
           component={InserirLocalizacao}
           options={{ title: "Inserir Localização" }}
         />
+        <Stack.Screen
+          name="Pesquisa"
+          component={Pesquisa}
+          options={{ title: "Pesquise cidades no MAPA" }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -46,7 +52,7 @@ const App = () => {
 
 const HomeScreen = ({ navigation }) => {
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <TouchableOpacity
         style={styles.buttonNavegar}
         onPress={() => navigation.navigate("MinhaLocalizacao")}
@@ -96,13 +102,26 @@ const HomeScreen = ({ navigation }) => {
         />
         <Text style={styles.buttonText}>Inserir Localização</Text>
       </TouchableOpacity>
-    </View>
+
+      <View style={styles.space}></View>
+
+      <TouchableOpacity
+        style={styles.buttonNavegar}
+        onPress={() => navigation.navigate("Pesquisa")}
+      >
+        <Image
+          source={require('./src/img/PesquisaMapa.jpeg')}
+          style={styles.logo}
+        />
+        <Text style={styles.buttonText}>Pesquise cidades no MAPA</Text>
+      </TouchableOpacity>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     backgroundColor: "#f2f2f2",
     justifyContent: "center",
     alignItems: "center",

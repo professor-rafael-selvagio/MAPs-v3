@@ -8,7 +8,7 @@ import MapViewDirections from 'react-native-maps-directions';
 export default function SenaiSaoCarlos() {
   const mapRef = useRef(null);
   const [routeDetails, setRouteDetails] = useState(null); // V3
-  const apiKey = 'Use a API_KEY disponibilizada nos slides.'; // V3
+  const apiKey = 'AIzaSyCI8FdOqyqC7FdZ3E3lHvxRYF88Q1kat8c'; // V3
 
   useEffect(() => {
     // Coordenadas do Senai São Carlos
@@ -74,7 +74,7 @@ export default function SenaiSaoCarlos() {
           title="Senai São Carlos"
         >
           <Image
-            source={require('./../src/img/BandeiraSenai.png')}
+            source={require('../src/img/BandeiraSenai.png')}
             style={styles.markerImage}
           />
         </Marker>
