@@ -3,6 +3,8 @@
     "name": "Maps",
     "slug": "Maps",
     "version": "1.0.0",
+    "platforms": ["web", "ios", "android"],
+    "entryPoint": "./src/App.js",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -15,16 +17,29 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.rafaelselvagio.Maps"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/mapas-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.rafaelselvagio.Maps",
+      "permissions": ["ACCESS_FINE_LOCATION"]
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "build": {
+        "babel": {
+          "include": ["react-native-web"]
+        }
+      }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f710ad8a-a654-4637-afc0-1a9cece3b914"
+      }
     }
   }
 }
