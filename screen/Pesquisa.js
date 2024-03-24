@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { StyleSheet, View, TextInput, Button, Alert } from '../../MAPS_v4/node_modules/react-native/types';
+import { StyleSheet, View, TextInput, Button, Alert } from 'react-native';
 import axios from 'axios';
 import MapView, { Marker } from 'react-native-maps';
 import getLocationCoordinates from '../components/LocationComponent';
